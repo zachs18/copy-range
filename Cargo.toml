@@ -1,0 +1,16 @@
+[package]
+name = "copy-range"
+version = "0.1.0"
+edition = "2021"
+authors = ["Zachary S"]
+description = "core::ops::Range et al, but Copy and IntoIterator"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+categories = ["range", "data-structures"]
+keywords = ["range"]
+repository = "https://github.com/zachs18/copy-range"
+
+[features]
+default = ["std"]
+alloc = []
+std = ["alloc"]
