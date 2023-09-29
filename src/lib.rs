@@ -79,6 +79,15 @@ impl<Idx> CopyRange<Idx> {
     {
         self.start >= self.end
     }
+
+    /// Returns the exact length of the range.
+    pub fn len(&self) -> usize
+    where
+        core::ops::Range<Idx>: ExactSizeIterator,
+        Self: Copy,
+    {
+        self.into_std().len()
+    }
 }
 
 /// Convert a [`Range`] into a `CopyRange`.
@@ -202,6 +211,15 @@ impl<Idx> CopyRangeInclusive<Idx> {
     /// Convert a `CopyRangeInclusive` into a [`RangeInclusive`].
     pub fn into_std(self) -> RangeInclusive<Idx> {
         self.into()
+    }
+
+    /// Returns the exact length of the range.
+    pub fn len(&self) -> usize
+    where
+        core::ops::RangeInclusive<Idx>: ExactSizeIterator,
+        Self: Copy,
+    {
+        self.into_std().len()
     }
 }
 
